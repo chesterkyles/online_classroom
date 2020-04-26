@@ -39,17 +39,17 @@
                     <ul class="navbar-nav mr-auto">
                         @if ($user = Auth::user())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route($user->account_type . '.home', $user->getAccountType($user)) }}">
+                                <a class="nav-link" href="{{ route($user->account_type . '.home', $user->getAccountType()) }}">
                                     <i class="fa fa-home mr-1"></i>{{ __('Home') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route($user->account_type . '.subject.index', $user->getAccountType($user)) }}">
+                                <a class="nav-link" href="{{ route($user->account_type . '.subject.index', $user->getAccountType()) }}">
                                     <i class="fa fa-book mr-1"></i>{{ __('Class Schedule') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route($user->account_type . '.exam.index', $user->getAccountType($user)) }}">
+                                <a class="nav-link" href="{{ route($user->account_type . '.exam.index', $user->getAccountType()) }}">
                                     <i class="fa fa-pencil mr-1"></i>{{ __('Examination') }}
                                 </a>
                             </li>
@@ -102,7 +102,7 @@
                                         <div class="d-flex bg-secondary">
                                             <label class="text-light ml-4 my-1 font-weight-bolder">{{ $user->firstname }}</label>
                                         </div>
-                                        <a class="dropdown-item" href="{{ route($user->account_type . '.subject.viewAll', $user->getAccountType($user) ?: '') }}">
+                                        <a class="dropdown-item" href="{{ route($user->account_type . '.subject.viewAll', $user->getAccountType() ?: '') }}">
                                             {{ __('View All Classes') }}
                                         </a>
                                         <a class="dropdown-item" href="#">

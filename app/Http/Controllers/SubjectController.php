@@ -7,6 +7,7 @@ use App\Student;
 use App\Subject;
 use App\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 
@@ -56,8 +57,8 @@ class SubjectController extends Controller
     {
         $data = $this->validateRequest();
         $teacher->subjects()->create($this->searchOrCreateSemester($data));
-        return redirect(route('teacher.subject.index', compact('teacher')))
-            ->with('success', $request->name . ' class schedule has been successfully added!');
+        Session::flash('success', $request->name . ' class schedule has been successfully added!');
+        return redirect(route('teacher.subject.index', compact('teacher')));
     }
 
     /**
@@ -96,8 +97,8 @@ class SubjectController extends Controller
     {
         $data = $this->validateRequest();
         $subject->update($this->searchOrCreateSemester($data));
-        return redirect(route('teacher.subject.index', compact('teacher')))
-            ->with('success', $request->name . ' class schedule has been successfully updated!');
+        Session::flash('success', $request->name . ' class schedule has been successfully updated!');
+        return redirect(route('teacher.subject.index', compact('teacher')));
     }
 
     /**
@@ -110,12 +111,11 @@ class SubjectController extends Controller
      */
     public function destroy(Teacher $teacher, Subject $subject)
     {
-        $subject_temp = $subject->name;
+        Session::flash('danger', $subject->name . ' class schedule has been deleted!');
         $subject->students()->detach($subject->students);
         $subject->exams()->detach($subject->exams);
         $subject->delete();
-        return redirect(route('teacher.subject.index', compact('teacher')))
-            ->with('danger', $subject_temp . ' class schedule has been deleted!');
+        return redirect(route('teacher.subject.index', compact('teacher')));
     }
 
     public function search(Request $request, Teacher $teacher)
@@ -184,11 +184,16 @@ class SubjectController extends Controller
 
     protected function searchOrCreateSemester($data)
     {
-        $semester = Semester::where('name', $data['semester_name'])->where('year', $data['semester_year'])->get();
+        $semester = Semester::where('name', $data['semester_name'])
+            ->where('year', $data['semester_year'])
+            ->get();
         if ($semester->isNotEmpty()) {
             $semester_id = $semester->pluck('id')[0];
         } else {
-            $semester = Semester::create(['name' => $data['semester_name'], 'year' => $data['semester_year']]);
+            $semester = Semester::create([
+                'name' => $data['semester_name'],
+                'year' => $data['semester_year']
+            ]);
             $semester_id = $semester->id;
         }
         $data = Arr::add($data, 'semester_id', $semester_id);

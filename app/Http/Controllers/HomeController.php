@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        return redirect(route($user->account_type . '.home', $user->getAccountType($user)))
-            ->with('notification.status', $request->session()->get('notification.status'));
+        Session::flash('notification.status', $request->session()->get('notification.status'));
+        return redirect(route($user->account_type . '.home', $user->getAccountType($user)));
     }
 }

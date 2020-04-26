@@ -6,10 +6,17 @@ use App\Exam;
 use App\Question;
 use App\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class QuestionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['verified', 'auth', 'route.access']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +30,9 @@ class QuestionController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Teacher $teacher
+     * @param Exam $exam
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create(Teacher $teacher, Exam $exam)
     {
@@ -44,14 +53,14 @@ class QuestionController extends Controller
         $question = $exam->questions()->create($data['question']);
         $question_type = $this->questionType()[$question->type];
         $answers = $question->answers()->createMany(
-            $this->changeKeyToName($data['answer'][$question_type])
+            $this->changeKeysToName($data['answer'][$question_type])
         );
-        $keys = $this->getKeysFromQuestion($request, $question_type);
-        foreach((array)$keys as $key) {
-            $answers[$key]->update(['correct' => 1]);
+        $corrects = (array)$this->getCorrectAnswersFromQuestion($request, $question_type);
+        foreach($corrects as $correct) {
+            $answers[$correct]->update(['correct' => 1]);
         }
-        return redirect(route('teacher.exam.show', compact('teacher','exam')))
-            ->with('success', 'A question has been successfully added!');
+        Session::flash('success', 'A question has been successfully added!');
+        return redirect(route('teacher.exam.show', compact('teacher','exam')));
     }
 
     /**
@@ -68,35 +77,57 @@ class QuestionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Teacher $teacher
+     * @param Exam $exam
+     * @param Question $question
+     * @param $key
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Teacher $teacher, Exam $exam, Question $question, $key)
     {
-        //
+        return view('teacher.exam.question.edit', compact('teacher','exam','question', 'key'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param Teacher $teacher
+     * @param Exam $exam
+     * @param Question $question
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Teacher $teacher, Exam $exam, Question $question)
     {
-        //
+        $data = $this->validateRequest();
+        $question->update($data['question']);
+        $question_type = $this->questionType()[$question->type];
+        $corrects = (array)$this->getCorrectAnswersFromQuestion($request, $question_type);
+        foreach($question->answers as $key => $answer) {
+            $question->answers[$key]->name = $data['answer'][$question_type][$key];
+            (in_array($key, $corrects)) ? $correct_value = 1 : $correct_value = 0;
+            $question->answers[$key]->correct = $correct_value;
+            $question->answers[$key]->save();
+        }
+        Session::flash('success', 'A question has been successfully updated!');
+        return redirect(route('teacher.exam.show', compact('teacher','exam')));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Teacher $teacher
+     * @param Exam $exam
+     * @param Question $question
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher, Exam $exam, Question $question)
     {
-        //
+        $question->answers()->delete();
+        $question->delete();
+        Session::flash('danger', 'A question has been deleted!');
+        return redirect(route('teacher.exam.show', compact('teacher','exam')));
     }
 
 
@@ -120,7 +151,7 @@ class QuestionController extends Controller
     }
 
     /*todo change this to a more elegant solution*/
-    public function changeKeyToName($array)
+    public function changeKeysToName($array)
     {
         $new_arr = [];
         $chunked_arr = array_chunk((array)$array,1);
@@ -132,7 +163,7 @@ class QuestionController extends Controller
         return $new_arr;
     }
 
-    public function getKeysFromQuestion(Request $request, $question_type)
+    public function getCorrectAnswersFromQuestion(Request $request, $question_type)
     {
         if($question_type == 'mchoice') {
             return $request->answer['mchoiceradio'];

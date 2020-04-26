@@ -8,6 +8,7 @@ use App\Subject;
 use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class ExamController extends Controller
@@ -17,10 +18,11 @@ class ExamController extends Controller
         $this->middleware(['verified', 'auth', 'route.access']);
     }
 
-    public function index(Teacher $teacher)
+    public function index(Request $request, Teacher $teacher)
     {
+        $data = $request->input();
         $teacher->exams->load('subjects');
-        return view('teacher.exam.index', compact('teacher'));
+        return view('teacher.exam.index', compact('teacher', 'data'));
     }
 
     public function create(Teacher $teacher)
@@ -35,12 +37,13 @@ class ExamController extends Controller
         $exam = $teacher->exams()->create($data);
         $subjects = Subject::whereIn('id', $request->subjects)->get();
         $exam->subjects()->attach($subjects);
-        return redirect(route('teacher.exam.show', compact('teacher', 'exam')))
-            ->with('success', $exam->name. ' examination has been successfully added!');
+        Session::flash('success', $exam->name. ' examination has been successfully added!');
+        return redirect(route('teacher.exam.show', compact('teacher', 'exam')));
     }
 
     public function show(Teacher $teacher, Exam $exam)
     {
+        $exam->load('questions.answers');
         return view('teacher.exam.show', compact('teacher','exam'));
     }
 
@@ -58,18 +61,17 @@ class ExamController extends Controller
         $subjects_attach = Subject::whereIn('id', $request->subjects)->get()
             ->diff($exam->subjects->whereIn('id', $request->subjects));
         $exam->subjects()->attach($subjects_attach);
-        return redirect($request->redirect)
-            ->with('success', $exam->name . ' examination has been successfully updated!');
+        Session::flash('success', $exam->name . ' examination has been successfully updated!');
+        return redirect($request->redirect);
     }
 
     public function destroy(Teacher $teacher, Exam $exam)
     {
-        $exam_temp = $exam->name;
+        Session::flash('danger', $exam->name . ' examination has been deleted!');
         $exam->subjects()->detach($exam->subjects);
         $exam->students()->detach($exam->students);
         $exam->delete();
-        return redirect(route('teacher.exam.index', compact('teacher')))
-            ->with('danger', $exam_temp . ' examination has been deleted!');
+        return redirect(route('teacher.exam.index', compact('teacher')));
     }
 
     public function viewAll(Teacher $teacher)
@@ -82,18 +84,18 @@ class ExamController extends Controller
     {
         $enable = $exam->subjects->find($subject)->pivot->enable;
         $exam->subjects()->UpdateExistingPivot($subject, ['enable' => ($enable) ? 0 : 1]);
-        $message = ($enable) ?  'disabled' : 'enabled';
         $status = ($enable) ?  'danger' : 'success';
-        return redirect()->back()->with($status,
-            $exam->name . ' examination has been ' . $message . ' for ' . $subject->name_schedule);
+        Session::flash($status, $exam->name . ' examination has been ' . (($enable) ?  'disabled' : 'enabled') .
+            ' for ' . $subject->name_schedule);
+        return redirect()->back();
     }
 
     public function validateRequest()
     {
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255'],
-            'description' => ['max:255'],
-            'instruction' => ['required', 'string', 'max:255'],
+            'description' => ['string'],
+            'instruction' => ['required', 'string'],
             'duration' => ['required'],
             'shuffle' => ['integer'],
         ]);
@@ -101,7 +103,7 @@ class ExamController extends Controller
         return $data;
     }
 
-    /** CAN BE OPTIMIZED IN THE FUTURE **/
+    /*todo CAN BE OPTIMIZED IN THE FUTURE **/
     protected function getSemester($teacher)
     {
         return Semester::with(['subjects' => $this->subjectTeacherIdFilter($teacher)])

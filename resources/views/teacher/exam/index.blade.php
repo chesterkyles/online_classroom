@@ -26,22 +26,30 @@
 
                         <div class="card-body p-0">
                             <div class="d-flex d-lg-block">
-                                <a href="#last-created-exam"
-                                   class="border-0 list-group-item list-group-item-action text-center text-lg-left text-primary">
-                                    {{ __('Last Created Exam') }}
-                                </a>
-                                <a href="#pending-exams"
-                                   class="border-0 list-group-item list-group-item-action text-center text-lg-left text-primary">
-                                    {{ __('Pending Exams') }}
-                                </a>
-                                <a href="#enabled-exams"
-                                   class="border-0 list-group-item list-group-item-action text-center text-lg-left text-primary">
-                                    {{ __('Enabled Exams') }}
-                                </a>
-                                <a href="{{ route('teacher.exam.viewAll', compact('teacher')) }}"
-                                   class="border-0 list-group-item list-group-item-action text-center text-lg-left text-primary">
-                                    {{ __('View All Exams') }}
-                                </a>
+                                <div class="m-1 m-lg-2 d-flex">
+                                    <a href="#last-created-exam" class="py-2 list-group-item list-group-item-action
+                                        text-center text-lg-left text-primary d-flex align-items-center">
+                                        {{ __('Last Created Exam') }}
+                                    </a>
+                                </div>
+                                <div class="m-1 m-lg-2 d-flex">
+                                    <a href="#pending-exams" class="py-2 list-group-item list-group-item-action
+                                        text-center text-lg-left text-primary d-flex align-items-center">
+                                        {{ __('Pending Exams') }}
+                                    </a>
+                                </div>
+                                <div class="m-1 m-lg-2 d-flex">
+                                    <a href="#enabled-exams" class="py-2 list-group-item list-group-item-action
+                                        text-center text-lg-left text-primary d-flex align-items-center">
+                                        {{ __('Enabled Exams') }}
+                                    </a>
+                                </div>
+                                <div class="m-1 m-lg-2 d-flex">
+                                    <a href="{{ route('teacher.exam.viewAll', compact('teacher')) }}" class="py-2 list-group-item
+                                        list-group-item-action text-center text-lg-left text-primary d-flex align-items-center">
+                                        {{ __('View All Exams') }}
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -60,6 +68,31 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header h5">
+                            <i class="fa fa-filter mr-1"></i>{{ __('Filter') }}
+                        </div>
+
+                        <div class="card-body justify-content-center py-3">
+                            <form role="search" action="" method="GET">
+                                <div class="d-flex p-0 m-0 mb-3 text-center btn-group">
+                                    <input type="search" name="name" class="form-control rounded" placeholder="Exam Name"
+                                           value="{{ (array_key_exists('name', $data)) ? $data['name'] : '' }}">
+                                </div>
+
+                                <div class="d-flex p-0 m-0 mb-3 text-center btn-group">
+                                    <input type="search" name="class" class="form-control rounded" placeholder="Course Code"
+                                           value="{{ (array_key_exists('class', $data)) ? $data['class'] : '' }}">
+                                </div>
+
+                                <div class="d-flex p-0 m-0 text-center btn-group">
+                                    <button type="submit" class="mx-1 btn btn-secondary">Enter</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="col-12 col-lg-9 d-block">
@@ -69,7 +102,7 @@
                             <div class="d-flex ml-3">
                                 <div class="col-6 m-0 p-0 h4">{{ __('Last Created Exam') }}</div>
                                 <div class="text-right col-6 p-0" >
-                                    <i class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
+                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
                                 </div>
                             </div>
                         </a>
@@ -90,7 +123,7 @@
                             <div class="d-flex ml-3">
                                 <div class="col-6 m-0 p-0 h4">{{ __('Pending Examinations ') }}</div>
                                 <div class="text-right col-6 p-0" >
-                                    <i class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
+                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
                                 </div>
                             </div>
                         </a>
@@ -113,7 +146,7 @@
                             <div class="d-flex ml-3">
                                 <div class="col-6 m-0 p-0 h4">{{ __('Enabled Examinations ') }}</div>
                                 <div class="text-right col-6 p-0" >
-                                    <i class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
+                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
                                 </div>
                             </div>
                         </a>
@@ -142,11 +175,12 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function(){
             $('.card-header').click(function(e) {
                 e.preventDefault();
-                $(this).find('i').toggleClass('fa-angle-double-up fa-angle-double-down');
+                $(this).find('i[name=arrow]').toggleClass('fa-angle-double-up fa-angle-double-down');
             });
             $('.copy-exam-code button').click(function() {
                 $(this).siblings('.copy-exam-code input').select();

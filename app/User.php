@@ -52,30 +52,22 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /*todo CHANGE THIS IMPLEMENTATION */
     /* add role type? or change url user -> type */
-    protected function accountType($user)
+    public function getAccountType()
     {
-        return [
-            'student' => $user->student,
-            'teacher' => $user->teacher,
-        ];
+        if($this->account_type == 'student') {
+            return $this->student;
+        } else if ($this->account_type == 'teacher') {
+            return $this->teacher;
+        }
     }
 
-    protected function accountModel($user)
+    public function getAccountModel()
     {
-        return [
-            'student' => $user->student(),
-            'teacher' => $user->teacher(),
-        ];
-    }
-
-    public function getAccountType($user)
-    {
-        return $this->accountType($user)[$user->account_type];
-    }
-
-    public function getAccountModel($user)
-    {
-        return $this->accountModel($user)[$user->account_type];
+        if($this->account_type == 'student') {
+            return $this->student();
+        } else if ($this->account_type == 'teacher') {
+            return $this->teacher();
+        }
     }
 
     public function teacher()

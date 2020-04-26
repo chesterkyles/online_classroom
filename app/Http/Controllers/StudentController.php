@@ -6,6 +6,7 @@ use App\Semester;
 use App\Student;
 use App\Subject;
 use Illuminate\Http\Request;
+use MongoDB\Driver\Session;
 
 
 class StudentController extends Controller
@@ -48,8 +49,9 @@ class StudentController extends Controller
     public function enroll(Student $student, Subject $subject)
     {
         $student->subjects()->attach($subject);
-        return redirect()->back()->with('enroll_class', 'You enroll to ' . $subject->name . ' (' .
-            $subject->description . '), ' . $subject->schedule . '. Please wait for confirmation and approval.');
+        Session::flash('enroll_class', 'You enroll to ' . $subject->name . ' (' .
+        $subject->description . '), ' . $subject->schedule . '. Please wait for confirmation and approval.');
+        return redirect()->back();
     }
 
     protected function teacherFilter($data)

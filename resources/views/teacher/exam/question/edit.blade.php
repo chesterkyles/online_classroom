@@ -10,12 +10,13 @@
             <div class="col-md-10 d-block">
                 <div class="card mb-4">
                     <div class="card-header align-items-center py-3">
-                        <strong class="ml-3 h4">{{ __('Question No. ') }}{{ $exam->questions->count() + 1 }}</strong>
+                        <strong class="ml-3 h4">{{ __('Edit Question No. ') }}{{ $key + 1 }}</strong>
                     </div>
                     <div class="card-body mx-4 justify-content-center my-3">
                         <div class="form-group">
-                            <form method="POST" action="{{ route('teacher.exam.question.store', compact('teacher','exam')) }}">
+                            <form method="POST" action="{{ route('teacher.exam.question.update', compact('teacher','exam','question')) }}">
                                 @csrf
+                                @method('PATCH')
                                 @include('teacher.exam.question.form')
                             </form>
                         </div>

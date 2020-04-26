@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 <script>
     $(document).ready(function() {
         var quill = new Quill('#editor-container', {
@@ -7,6 +9,7 @@
             placeholder: 'Write your question here...',
             theme: 'snow'
         });
+        quill.root.innerHTML = $('#editor-content').val();
 
         var $tab_id = '#single';
         $('#questionTypeSelect').on('change', function (e) {

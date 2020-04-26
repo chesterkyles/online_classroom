@@ -50,6 +50,9 @@ Route::get('/teacher/{teacher}/exam/{exam}/enable/{subject}', 'ExamController@en
 // Teacher -> Exam -> QuestionController
 Route::get('/teacher/{teacher}/exam/{exam}/question/create', 'QuestionController@create')->name('teacher.exam.question.create');
 Route::post('/teacher/{teacher}/exam/{exam}/question', 'QuestionController@store')->name('teacher.exam.question.store');
+Route::get('/teacher/{teacher}/exam/{exam}/question/{question}{key}/edit', 'QuestionController@edit')->name('teacher.exam.question.edit');
+Route::patch('/teacher/{teacher}/exam/{exam}/question/{question}', 'QuestionController@update')->name('teacher.exam.question.update');
+Route::delete('/teacher/{teacher}/exam/{exam}/question/{question}', 'QuestionController@destroy')->name('teacher.exam.question.destroy');
 
 // StudentController
 Route::get('/student/{student}', 'StudentController@home')->name('student.home');

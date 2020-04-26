@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a812f71f-c53e-4db8-9147-14cf722e44ae" name="Default Changelist" comment="" />
+    <list default="true" id="a812f71f-c53e-4db8-9147-14cf722e44ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dialog/question/delete.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/exam/preview.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teacher/exam/question/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teacher/exam/question/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExamController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/question/choices.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/question/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/question/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/question/jquery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/question/jquery.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +37,9 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="april_project_exam_system" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -122,6 +147,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1aSKxc1QvEOgRLSennpUm9EjmJV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -129,9 +155,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="VAR" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dialog/student" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dialog/question" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -141,19 +168,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\question" />
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\student" />
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\js" />
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\css" />
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\student" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\exam" />
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\js" />
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\student\subject" />
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\subject" />
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\teacher" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\student" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\js" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\css" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\student" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\subject\student" />
     </key>
   </component>
   <component name="RunManager">
@@ -194,6 +221,7 @@
       <workItem from="1587646403840" duration="13463000" />
       <workItem from="1587686116704" duration="6219000" />
       <workItem from="1587700078362" duration="19504000" />
+      <workItem from="1587785531276" duration="23637000" />
     </task>
     <servers />
   </component>
@@ -237,17 +265,17 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1641" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587700070209" />
-    <state x="1817" y="73" width="828" height="606" key="find.popup" timestamp="1587564097363">
+    <state x="1817" y="73" width="828" height="606" key="find.popup" timestamp="1587810819584">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1817" y="73" width="828" height="606" key="find.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587564097363" />
+    <state x="1817" y="73" width="828" height="606" key="find.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587810819584" />
     <state x="1705" y="162" key="run.anything.popup" timestamp="1587712391174">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1705" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587712391174" />
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587705141861">
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587808750309">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587705141861" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587808750309" />
   </component>
 </project>

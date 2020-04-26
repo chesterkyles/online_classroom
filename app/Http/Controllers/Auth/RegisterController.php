@@ -88,7 +88,7 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        $user->getAccountModel($user)->create([
+        $user->getAccountModel()->create([
             'account_number' => $user->account_number,
             'firstname' => $user->firstname,
             'lastname' => $user->lastname,
