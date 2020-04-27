@@ -1,5 +1,5 @@
-<li class="list-group-item mx-2 rounded">
-    <div class="d-block d-lg-flex justify-content-between align-items-center my-3">
+<li class="list-group-item mx-2 rounded border-0 p-0" style="display:none">
+    <div class="d-block d-lg-flex justify-content-between align-items-center my-1 p-2 py-4 rounded border">
         <div class="d-block col-12" id="exam-menu-hover">
             <div class="row d-block d-lg-flex justify-content-between">
                 <div class="col-12 col-lg-9 h5 font-weight-bold mb-2">
@@ -15,7 +15,7 @@
                         {{ __('Code') }}
                     </a>
                     <a href="{{ route('teacher.exam.edit', compact('teacher', 'exam')) }}"
-                       data-toggle="tooltip" title="Edit" class="mr-4">
+                       data-toggle="tooltip" title="Edit" class="mr-4 text-decoration-none">
                         <i class="fa fa-edit fa-lg text-info"></i>
                     </a>
                     <a href="#" data-toggle="modal" data-target="#delete_confirm-{{ $exam->id }}"
@@ -35,7 +35,7 @@
                 <p class="font-italic m-0">{{ 'Class Schedule(s):' }}</p>
                 @foreach($exam->subjects as $subject)
                     <div class="d-flex mb-1">
-                        <a href="{{ route('teacher.subject.show', compact('teacher', 'subject')) }}">
+                        <a href="{{ route('teacher.subject.show', compact('teacher', 'subject')) }}" class="text-decoration-none">
                             <div class="text-primary mx-4 font-weight-bolder">{{ $subject->name_schedule }}</div>
                         </a>
                         @if($subject->pivot->enable)

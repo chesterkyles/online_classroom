@@ -17,7 +17,7 @@ class CreateExamsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('teacher_id')->index();
             $table->string('name');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->longText('description')->nullable();
             $table->longText('instruction');
             $table->string('duration');

@@ -20,7 +20,7 @@
 <div class="form-group d-block mx-4">
     <label for="instruction" class="text-md-right font-weight-bolder mb-0">{{ __('Instruction') }}</label>
     <small class="d-block font-italic mb-2 ml-2">{{ __('Provide a detailed instruction or step-by-step direction for the examination.') }}</small>
-    <textarea id="instruction" rows="2" class="form-control" style="resize:none" name="instruction" required autofocus>{{ old('instruction') ?: $exam->instruction ?? '' }}</textarea>
+    <textarea id="instruction" rows="3s" class="form-control" style="resize:none" name="instruction" required autofocus>{{ old('instruction') ?: $exam->instruction ?? '' }}</textarea>
     @error('instruction')
     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
     @enderror

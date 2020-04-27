@@ -102,13 +102,13 @@
                             <div class="d-flex ml-3">
                                 <div class="col-6 m-0 p-0 h4">{{ __('Last Created Exam') }}</div>
                                 <div class="text-right col-6 p-0" >
-                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
+                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-3 font-weight-bolder"></i>
                                 </div>
                             </div>
                         </a>
 
                         <div class="card-body collapse show" id="collapse-exam">
-                            <ul class="list-group">
+                            <ul class="list-group" id="lastCreatedList">
                                 @foreach($teacher->exams->take(1) as $exam)
                                     @include('teacher.exam.list')
                                     <div class="mb-2"></div>
@@ -123,20 +123,22 @@
                             <div class="d-flex ml-3">
                                 <div class="col-6 m-0 p-0 h4">{{ __('Pending Examinations ') }}</div>
                                 <div class="text-right col-6 p-0" >
-                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
+                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-3 font-weight-bolder"></i>
                                 </div>
                             </div>
                         </a>
 
                         <div class="card-body collapse show" id="collapse-pending">
-                            <ul class="list-group">
+                            <ul class="list-group" id="pendingMoreList">
                                 @foreach($teacher->exams->skip(1) as $exam)
                                     @if($exam->subjects->where('pivot.enable', 0)->isNotEmpty())
                                         @include('teacher.exam.list')
-                                        <div class="mb-2"></div>
                                     @endif
                                 @endforeach
                             </ul>
+                            <div class="text-center mt-2">
+                                <a href="#" id="pendingMore" class="viewMore">View More</a>
+                            </div>
                         </div>
                     </div>
 
@@ -146,20 +148,22 @@
                             <div class="d-flex ml-3">
                                 <div class="col-6 m-0 p-0 h4">{{ __('Enabled Examinations ') }}</div>
                                 <div class="text-right col-6 p-0" >
-                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-4 font-weight-bolder"></i>
+                                    <i name="arrow" class="fa fa-angle-double-up fa-lg mr-3 font-weight-bolder"></i>
                                 </div>
                             </div>
                         </a>
 
                         <div class="card-body collapse show" id="collapse-enabled">
-                            <ul class="list-group">
+                            <ul class="list-group" id="enabledMoreList">
                                 @foreach($teacher->exams->skip(1) as $exam)
                                     @if(!($exam->subjects->where('pivot.enable', 0)->isNotEmpty()))
                                         @include('teacher.exam.list')
-                                        <div class="mb-2"></div>
                                     @endif
                                 @endforeach
                             </ul>
+                            <div class="text-center mt-2">
+                                <a href="#" id="enabledMore" class="viewMore">View More</a>
+                            </div>
                         </div>
                     </div>
 
@@ -191,6 +195,19 @@
                     a.popover('hide');
                 }, 1000, $(this));
             });
+
         });
+
+        $('a.viewMore').click(function() {
+            let items = $('ul#'+ $(this).attr('id') + 'List > li:hidden');
+            if(items.length > 0) {
+                items.slice(0, 3).show();
+                if (items.length < 3) $(this).html("");
+            }
+            return false;
+        });
+        $('ul#lastCreatedList > li:hidden').show();
+        $("a.viewMore").click();
+
     </script>
 @endsection

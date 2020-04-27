@@ -14010,3 +14010,10 @@ a.text-dark:focus {
         border-right: 1px solid #dee2e6 !important;
     }
 }
+
+.label-option:hover,
+.label-option.active,
+.label-option.active:hover {
+    background-color: #e9ecef !important;
+}
+

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm font-weight-bolder">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm font-weight-bolder">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -38,19 +38,24 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @if ($user = Auth::user())
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route($user->account_type . '.home', $user->getAccountType()) }}">
+                            <li class="nav-item mx-1">
+                                <a class="nav-link btn btn-light rounded-pill px-3" href="{{ route($user->account_type . '.home', $user->getAccountType()) }}">
                                     <i class="fa fa-home mr-1"></i>{{ __('Home') }}
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route($user->account_type . '.subject.index', $user->getAccountType()) }}">
-                                    <i class="fa fa-book mr-1"></i>{{ __('Class Schedule') }}
+                            <li class="nav-item mx-1">
+                                <a class="nav-link btn btn-light rounded-pill px-3" href="{{ route($user->account_type . '.subject.index', $user->getAccountType()) }}">
+                                    <i class="fa fa-users mr-1"></i>{{ __('Classes') }}
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route($user->account_type . '.exam.index', $user->getAccountType()) }}">
-                                    <i class="fa fa-pencil mr-1"></i>{{ __('Examination') }}
+                            <li class="nav-item mx-1">
+                                <a class="nav-link btn btn-light rounded-pill px-3" href="{{ route($user->account_type . '.exam.index', $user->getAccountType()) }}">
+                                    <i class="fa fa-pencil mr-1"></i>{{ __('Exams') }}
+                                </a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a class="nav-link btn btn-light rounded-pill px-3" href="#">
+                                    <i class="fa fa-book mr-1"></i>{{ __('Notes') }}
                                 </a>
                             </li>
                         @endif
@@ -105,7 +110,7 @@
                                         <a class="dropdown-item" href="{{ route($user->account_type . '.subject.viewAll', $user->getAccountType() ?: '') }}">
                                             {{ __('View All Classes') }}
                                         </a>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{ route($user->account_type . '.exam.viewAll', $user->getAccountType() ?: '') }}">
                                             {{ __('View All Examinations') }}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"

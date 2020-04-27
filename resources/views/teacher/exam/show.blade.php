@@ -56,7 +56,7 @@
                             <p class="d-none d-lg-block font-weight-bold">Menu buttons:</p>
                             <a href="{{ route('teacher.exam.question.create', compact('teacher', 'exam')) }}" class="btn btn-primary form-control mb-0 mb-lg-2 mx-1 mx-lg-0">Add Question</a>
                             <button class="btn btn-secondary form-control mb-0 mb-lg-2 mx-1 mx-lg-0">View Students</button>
-                            <button class="btn btn-success form-control mb-0 mb-lg-2 mx-1 mx-lg-0">Preview Exam</button>
+                            <a href="{{ route('teacher.exam.preview', compact('teacher', 'exam')) }}" class="btn btn-success form-control mb-0 mb-lg-2 mx-1 mx-lg-0">Preview Exam</a>
                         </div>
                     </div>
                 </div>

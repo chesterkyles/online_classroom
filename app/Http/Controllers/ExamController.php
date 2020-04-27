@@ -47,6 +47,13 @@ class ExamController extends Controller
         return view('teacher.exam.show', compact('teacher','exam'));
     }
 
+    public function preview(Teacher $teacher, Exam $exam)
+    {
+        if($exam->shuffle) $exam->load(['questions' => $this->randomOrderQuery(), 'questions.answers']);
+        else $exam->load('questions.answers');
+        return view('teacher.exam.preview', compact('teacher','exam'));
+    }
+
     public function edit(Teacher $teacher, Exam $exam)
     {
         $semesters = $this->getSemester($teacher);
@@ -74,10 +81,11 @@ class ExamController extends Controller
         return redirect(route('teacher.exam.index', compact('teacher')));
     }
 
-    public function viewAll(Teacher $teacher)
+    public function viewAll(Request $request, Teacher $teacher)
     {
+        $data = $request->input();
         $teacher->exams->load('subjects');
-        return view('teacher.exam.view', compact('teacher'));
+        return view('teacher.exam.all', compact('teacher', 'data'));
     }
 
     public function enable(Teacher $teacher, Exam $exam, Subject $subject)
@@ -116,6 +124,13 @@ class ExamController extends Controller
     {
         return function($query) use ($teacher) {
             $query->where('teacher_id', $teacher->id);
+        };
+    }
+
+    protected function randomOrderQuery()
+    {
+        return function($query) {
+            $query->inRandomOrder();
         };
     }
 

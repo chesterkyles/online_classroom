@@ -34,7 +34,7 @@
                                     <a class="nav-item nav-link" id="nav-exam-tab" data-toggle="tab"
                                        href="#nav-exam" role="tab" aria-controls="nav-exam" aria-selected="false">Examinations</a>
                                     <a class="nav-item nav-link" id="nav-extra-tab" data-toggle="tab"
-                                       href="#nav-extra" role="tab" aria-controls="nav-extra" aria-selected="false">FUTURE</a>
+                                       href="#nav-extra" role="tab" aria-controls="nav-extra" aria-selected="false">Notes</a>
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
@@ -127,7 +127,7 @@
                                     @endif
                                 </div>
                                 <div class="tab-pane fade mt-4" id="nav-extra" role="tabpanel" aria-labelledby="nav-exam-tab">
-                                    {{ __('UNDER CONSTRUCTION 2') }}
+                                    {{ __('UNDER CONSTRUCTION') }}
                                 </div>
                             </div>
                         </div>

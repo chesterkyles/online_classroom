@@ -43,6 +43,7 @@ Route::get('/teacher/{teacher}/exam/create', 'ExamController@create')->name('tea
 Route::post('/teacher/{teacher}/exam', 'ExamController@store')->name('teacher.exam.store');
 Route::get('/teacher/{teacher}/exam/all', 'ExamController@viewAll')->name('teacher.exam.viewAll');
 Route::get('/teacher/{teacher}/exam/{exam}', 'ExamController@show')->name('teacher.exam.show');
+Route::get('/teacher/{teacher}/exam/{exam}/preview', 'ExamController@preview')->name('teacher.exam.preview');
 Route::get('/teacher/{teacher}/exam/{exam}/edit', 'ExamController@edit')->name('teacher.exam.edit');
 Route::patch('/teacher/{teacher}/exam/{exam}', 'ExamController@update')->name('teacher.exam.update');
 Route::delete('/teacher/{teacher}/exam/{exam}', 'ExamController@destroy')->name('teacher.exam.destroy');
