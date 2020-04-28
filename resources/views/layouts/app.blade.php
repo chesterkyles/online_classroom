@@ -21,10 +21,14 @@
 
     @yield('head-scripts')
 
+    <style>
+        body { padding-top: 75px; }
+    </style>
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm font-weight-bolder">
+        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white shadow-sm font-weight-bolder">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -41,7 +45,7 @@
                             <li class="nav-item mx-1">
                                 <a class="nav-link btn btn-light rounded-pill px-3 shadow-sm" href="{{ route($user->account_type . '.home', $user->getAccountType()) }}">
                                     <i class="fa fa-home mr-1"></i>{{ __('Home') }}
-{{--                                   d-none d-lg-inline--}}
+{{--                                   d-none45 d-lg-inline--}}
                                 </a>
                             </li>
                             <li class="nav-item mx-1">
@@ -143,9 +147,23 @@
             </div>
         </nav>
 
+        <div class="position-fixed w-100 d-flex flex-column p-4" style="z-index: 1030; pointer-events: none;">
+            <div class="toast ml-auto" role="alert" style="pointer-events: auto;">
+                <div class="toast-header">
+                    <strong class="mr-auto text-primary">Message</strong>
+                    <small class="text-muted">a few seconds ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="toast-body"> THIS MESSAGE IS FOR NOTIFICATION. UNDER CONSTRUCTION! </div>
+            </div>
+        </div>
+
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
 
     <!-- Scripts -->
@@ -154,6 +172,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        $(".toast").toast({
+            animation: true,
+            delay: 10000,
+        }).toast('show');
+    </script>
     @yield('scripts')
 </body>
 </html>
