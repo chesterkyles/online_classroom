@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10 d-block">
+            <div class="col-12 col-lg-10 d-block">
                 <div class="card mb-4">
                     <div class="card-header align-items-center py-3">
                         <strong class="ml-3 h4">{{ __('Edit Question No. ') }}{{ $key + 1 }}</strong>

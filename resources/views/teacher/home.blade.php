@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-12 col-lg-10">
             @if (session()->has('notification.status'))
                 <div class="alert alert-success text-center" role="alert">
                     <strong>{{ $teacher->firstname ?? '' }}.</strong> {{ session('notification.status') }}

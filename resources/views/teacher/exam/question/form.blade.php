@@ -25,11 +25,11 @@
     <div class="col-12 col-lg-8 d-block d-lg-inline mb-2">
         <div class="tab-content">
             <div class="tab-pane {{ ($question->type ?? '') == 0 ? 'active show' : '' }}" id="single">
-                <label for="singleAnswer" class="form-text text-muted">Please provide an answer:</label>
+                <label class="form-text text-muted">Please provide an answer:</label>
                 <input type="text" name="answer[single]" id="singleAnswer" class="form-control" value="{{ $question->answers[0]->name ?? '' }}">
             </div>
             <div class="tab-pane {{ ($question->type ?? '') == 1 ? 'active show' : '' }}" id="bool">
-                <label for="trueOrFalse" class="form-text text-muted">Please choose an option:</label>
+                <label class="form-text text-muted">Please choose an option:</label>
                 <div class="custom-control custom-radio">
                     <input class="custom-control-input" type="radio" name="answer[bool]" id="answer_true" value="True"
                         {{ ($question->answers[0]->name ?? '') == 'True' ? 'checked' : '' }}>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="tab-pane {{ ($question->type ?? '') == 2 ? 'active show' : '' }}" id="mchoice">
-                <label for="multipleChoicesAnswers" class="form-text text-muted">Please provide choices and choose the correct answer:</label>
+                <label class="form-text text-muted">Please provide choices and choose the correct answer:</label>
                 @for($i = 0; $i < 4; $i++)
                     <div class="input-group mb-1">
                         <div class="input-group-prepend">
@@ -56,7 +56,7 @@
                 @endfor
             </div>
             <div class="tab-pane {{ ($question->type ?? '') == 3 ? 'active show' : '' }}" id="mresponse">
-                <label for="multipleResponsesAnswers" class="form-text text-muted">Please provide choices and choose the correct answers:</label>
+                <label class="form-text text-muted">Please provide choices and choose the correct answers:</label>
                 @for($i = 0; $i < 4; $i++)
                     <div class="input-group mb-1">
                         <div class="input-group-prepend">

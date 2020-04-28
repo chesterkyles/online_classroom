@@ -3,14 +3,19 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-12 col-lg-10">
                 <div class="card">
-                    <div class="card-header align-items-center text-center text-md-left py-4">
-                        <strong class="ml-3 h4">{{ $subject->name_description }}</strong>
-                        <a href="{{ route('teacher.subject.edit', compact('teacher', 'subject')) }}"
-                           data-toggle="tooltip" title="{{ 'Edit ' . $subject->name }}" class="ml-1 mr-2">
-                            <i class="fa fa-edit fa-lg text-info"></i>
-                        </a>
+                    <div class="card-header align-items-center py-4">
+                        <div class="text-center text-md-left align-items-center ml-3 mb-2">
+                            <strong class="h4">{{ $subject->name_description }}</strong>
+                            <a href="{{ route('teacher.subject.edit', compact('teacher', 'subject')) }}"
+                               data-toggle="tooltip" title="{{ 'Edit ' . $subject->name }}" class="ml-1 mr-2">
+                                <i class="fa fa-edit fa-lg text-info"></i>
+                            </a>
+                        </div>
+                        <div class="text-center text-md-left ml-3">
+                            <a href="#" class="btn btn-warning rounded-pill shadow-sm">{{ __('Online Classroom') }}</a>
+                        </div>
                     </div>
                     <div class="card-body mx-4 justify-content-center mb-4">
                         <div class="h6 d-flex">

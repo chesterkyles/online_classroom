@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-9 d-block">
+            <div class="col-12 col-lg-9 d-block">
                 @if (session()->has('success'))
                     <div class="alert alert-success text-center" role="alert">
                         {{ session('success') }}
@@ -18,8 +18,8 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="row col-md-10 col-lg-9  d-block d-lg-flex mb-4">
-                <div class="card col-12 col-lg-8 p-0">
+            <div class="row col-12 col-lg-9 d-block d-md-flex mb-4">
+                <div class="card col-12 col-md-8 p-0">
                     <div class="card-header align-items-center text-center py-3">
                         <strong class="h4">{{ $exam->name }}</strong>
                         <a href="{{ route('teacher.exam.edit', compact('teacher','exam')) }}"
@@ -50,13 +50,13 @@
                     </div>
                 </div>
 
-                <div class="card d-flex col-12 col-lg-4 mt-2 mt-lg-0">
-                    <div class="card-body d-block d-lg-flex align-items-center">
-                        <div class="align-items-center d-flex d-lg-block">
-                            <p class="d-none d-lg-block font-weight-bold">Menu buttons:</p>
-                            <a href="{{ route('teacher.exam.question.create', compact('teacher', 'exam')) }}" class="btn btn-primary form-control mb-0 mb-lg-2 mx-1 mx-lg-0">Add Question</a>
-                            <button class="btn btn-secondary form-control mb-0 mb-lg-2 mx-1 mx-lg-0">View Students</button>
-                            <a href="{{ route('teacher.exam.preview', compact('teacher', 'exam')) }}" class="btn btn-success form-control mb-0 mb-lg-2 mx-1 mx-lg-0">Preview Exam</a>
+                <div class="card d-flex col-12 col-md-4 mt-2 mt-md-0">
+                    <div class="card-body d-block d-md-flex align-items-center">
+                        <div class="align-items-center d-flex d-md-block">
+                            <p class="d-none d-md-block font-weight-bold">Menu buttons:</p>
+                            <a href="{{ route('teacher.exam.question.create', compact('teacher', 'exam')) }}" class="btn btn-primary form-control mb-0 mb-md-2 mx-1 mx-md-0">Add Question</a>
+                            <button class="btn btn-secondary form-control mb-0 mb-md-2 mx-1 mx-md-0">View Students</button>
+                            <a href="{{ route('teacher.exam.preview', compact('teacher', 'exam')) }}" class="btn btn-success form-control mb-0 mb-md-2 mx-1 mx-md-0">Preview Exam</a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-9 d-block">
+            <div class="col-12 col-lg-9 d-block">
                 <div class="card mb-4">
                     <div class="card-body mx-4 justify-content-center">
                         <h5 class="card-title font-weight-bolder">{{ 'Instruction:  ' }}</h5>
@@ -76,10 +76,13 @@
 
         @foreach($exam->questions as $key => $question)
             <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-9 d-block">
+                <div class="col-12 col-lg-9 d-block">
                     <div class="card mb-4">
                         <div class="card-header align-items-center py-3 d-flex justify-content-between">
-                            <h6 class="card-title font-weight-bolder ml-3 m-0">{{ 'Question No. ' }}{{ $key + 1 }}</h6>
+                            <div>
+                                <label class="h6 card-title font-weight-bolder m-0 ml-3">{{ 'Question No. ' }}{{ $key + 1 }}</label>
+                                <label class="h6 card-title m-0 ml-3">{{ '(' . $question->points . ' pts)'}}</label>
+                            </div>
                             <div class="mr-3">
                                 <a href="{{ route('teacher.exam.question.edit', compact('teacher', 'exam', 'question', 'key')) }}"
                                    data-toggle="tooltip" title="Edit" class="mr-4 text-decoration-none">

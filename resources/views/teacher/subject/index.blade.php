@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-12 col-lg-10">
                 @if (session()->has('success'))
                     <div class="alert alert-success text-center" role="alert">
                         {{ session('success') }}
@@ -31,8 +31,13 @@
                         @if(!Request::is('*/all'))
                             <div class="mr-3 my-2">
                                 <form class="input-group justify-content-center" role="search" action="{{ route('teacher.subject.search', compact('teacher')) }}" method="GET">
-                                    <input type="search" name="class" class="px-2 form-control" placeholder="Course Code" value="{{ old('class') ?: $class ?? '' }}">
-                                    <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                                    <div class="input-group rounded">
+                                        <input type="search" name="class" class="px-2 form-control" placeholder="Course Code" value="{{ old('class') ?: $class ?? '' }}">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+
                                 </form>
                             </div>
                         @endif
@@ -111,7 +116,7 @@
                 @if(Request::is('*/search'))
                     <div class="d-block mt-2 text-center mb-4">
                         <a href="{{ route('teacher.subject.index', compact('teacher')) }}">
-                            {{ __('View all class schedule') }}
+                            {{ __('Go back to class schedule') }}
                         </a>
                     </div>
                 @endif

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9 d-block d-lg-flex">
+            <div class="col-12 col-lg-9 d-block d-lg-flex">
                 <div class="card mb-4">
                     <div class="card-header d-inline align-items-center py-3">
                         <div class="d-flex ml-3">

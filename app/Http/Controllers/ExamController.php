@@ -49,8 +49,7 @@ class ExamController extends Controller
 
     public function preview(Teacher $teacher, Exam $exam)
     {
-        if($exam->shuffle) $exam->load(['questions' => $this->randomOrderQuery(), 'questions.answers']);
-        else $exam->load('questions.answers');
+        $exam->load(['questions' => $this->randomOrderQuery($exam), 'questions.answers']);
         return view('teacher.exam.preview', compact('teacher','exam'));
     }
 
@@ -127,10 +126,11 @@ class ExamController extends Controller
         };
     }
 
-    protected function randomOrderQuery()
+    protected function randomOrderQuery($exam)
     {
-        return function($query) {
-            $query->inRandomOrder();
+        return function($query) use ($exam) {
+            if($exam->shuffle)
+                $query->inRandomOrder();
         };
     }
 

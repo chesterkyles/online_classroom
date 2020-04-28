@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-9 d-block">
+            <div class="col-12 col-lg-9 d-block">
                 <div class="card mb-4">
                     <div class="card-header align-items-center text-center py-3">
                         <strong class="h4">{{ $exam->name }}</strong>
@@ -18,10 +18,11 @@
 
         @foreach($exam->questions as $key => $question)
             <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-9 d-block">
+                <div class="col-12 col-lg-9 d-block">
                     <div class="card mb-4">
                         <div class="card-header align-items-center py-3 d-flex justify-content-between">
-                            <h6 class="card-title font-weight-bolder ml-3 m-0">{{ 'Question No. ' }}{{ $key + 1 }}</h6>
+                            <label class="h6 card-title font-weight-bolder m-0 ml-3">{{ 'Question No. ' }}{{ $key + 1 }}</label>
+                            <label class="h6 card-title m-0 mr-3">{{ '(' . $question->points . ' pts)'}}</label>
                         </div>
                         <div class="card-body justify-content-center">
                             <div class="card-title h6 ml-3 mt-1">{!! $question->name !!}</div>
@@ -44,7 +45,7 @@
                                         <div class="input-group my-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="radio" name="answer[{{ $key  }}]" id="false{{ $key }}"  value="Falses">
+                                                    <input type="radio" name="answer[{{ $key  }}]" id="false{{ $key }}"  value="False">
                                                 </div>
                                             </div>
                                             <label class="form-control label-option" for="false{{ $key }}">{{ __('False') }}</label>
@@ -89,12 +90,12 @@
 @section('scripts')
     <script>
         $(document).ready(function(){
-           $('input').on('change', function() {
+            $('input').on('change', function() {
                $(this).parent().closest('div[class="answer_class"]').find('input').each(function(e){
                    let $color = (this.checked) ? '#f8f9fa' : 'white';
                    $(this).parent().closest('div[class="input-group my-2"]').find('label').css('background-color', $color);
                });
-           });
+            });
             $('input').on('blur', function() {
                 let $color = (!$(this).val()) ? 'white' : '#f8f9fa';
                 $(this).css('background-color', $color);
