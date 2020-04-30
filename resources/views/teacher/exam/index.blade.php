@@ -136,6 +136,7 @@
                                     @endif
                                 @endforeach
                             </ul>
+{{--                        todo: change to AJAX JQUERY instead of loading all, load some first then request from database   --}}
                             <div class="text-center mt-2">
                                 <a href="#" id="pendingMore" class="viewMore">View More</a>
                             </div>

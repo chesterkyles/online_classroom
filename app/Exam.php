@@ -16,14 +16,14 @@ class Exam extends Model
     /* add TRAIT for format dates */
     public function getCreatedAtAttribute($date)
     {
-        $date =  Carbon::parse($date)->timezone('Asia/Singapore')->toDateTimeString();
+        $date = Carbon::parse($date)->timezone('Asia/Singapore')->toDateTimeString();
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m/d/Y g:i A');
 
     }
 
     public function getUpdatedAtAttribute($date)
     {
-        $date =  Carbon::parse($date)->timezone('Asia/Singapore')->toDateTimeString();
+        $date = Carbon::parse($date)->timezone('Asia/Singapore')->toDateTimeString();
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m/d/Y g:i A');
     }
 

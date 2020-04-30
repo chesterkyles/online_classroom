@@ -44,23 +44,23 @@
                         @if ($user = Auth::user())
                             <li class="nav-item mx-1">
                                 <a class="nav-link btn btn-light rounded-pill px-3 shadow-sm" href="{{ route($user->account_type . '.home', $user->getAccountType()) }}">
-                                    <i class="fa fa-home mr-1"></i>{{ __('Home') }}
-{{--                                   d-none45 d-lg-inline--}}
+                                    <i class="fa fa-home"></i><div class="ml-1 d-none d-lg-inline">{{ __('Home') }}</div>
+{{--                                   d-none d-lg-inline--}}
                                 </a>
                             </li>
                             <li class="nav-item mx-1">
                                 <a class="nav-link btn btn-light rounded-pill px-3 shadow-sm" href="{{ route($user->account_type . '.subject.index', $user->getAccountType()) }}">
-                                    <i class="fa fa-users mr-1"></i>{{ __('Classes') }}
+                                    <i class="fa fa-users"></i><div class="ml-1 d-none d-lg-inline">{{ __('Classes') }}</div>
                                 </a>
                             </li>
                             <li class="nav-item mx-1">
                                 <a class="nav-link btn btn-light rounded-pill px-3 shadow-sm" href="{{ route($user->account_type . '.exam.index', $user->getAccountType()) }}">
-                                    <i class="fa fa-pencil mr-1"></i>{{ __('Exams') }}
+                                    <i class="fa fa-pencil"></i><div class="ml-1 d-none d-lg-inline">{{ __('Exams') }}</div>
                                 </a>
                             </li>
                             <li class="nav-item mx-1">
                                 <a class="nav-link btn btn-light rounded-pill px-3 shadow-sm" href="#">
-                                    <i class="fa fa-book mr-1"></i>{{ __('Notes') }}
+                                    <i class="fa fa-book"></i><div class="ml-1 d-none d-lg-inline">{{ __('Notes') }}</div>
                                 </a>
                             </li>
                         @endif
@@ -147,18 +147,19 @@
             </div>
         </nav>
 
-        <div class="position-fixed w-100 d-flex flex-column p-4" style="z-index: 1030; pointer-events: none;">
-            <div class="toast ml-auto" role="alert" style="pointer-events: auto;">
-                <div class="toast-header">
-                    <strong class="mr-auto text-primary">Message</strong>
-                    <small class="text-muted">a few seconds ago</small>
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="toast-body"> THIS MESSAGE IS FOR NOTIFICATION. UNDER CONSTRUCTION! </div>
-            </div>
-        </div>
+{{--        TOAST MESSAGES: --}}
+{{--        <div class="position-fixed w-100 d-flex flex-column p-4" style="z-index: 1030; pointer-events: none;">--}}
+{{--            <div class="toast ml-auto" role="alert" style="pointer-events: auto;">--}}
+{{--                <div class="toast-header">--}}
+{{--                    <strong class="mr-auto text-primary">Message</strong>--}}
+{{--                    <small class="text-muted">a few seconds ago</small>--}}
+{{--                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">--}}
+{{--                        <span aria-hidden="true">×</span>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--                <div class="toast-body"> THIS MESSAGE IS FOR NOTIFICATION. UNDER CONSTRUCTION! </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <main class="py-4">
             @yield('content')

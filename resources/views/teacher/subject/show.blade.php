@@ -14,7 +14,8 @@
                             </a>
                         </div>
                         <div class="text-center text-md-left ml-3">
-                            <a href="#" class="btn btn-warning rounded-pill shadow-sm">{{ __('Online Classroom') }}</a>
+                            <a href="{{ route('teacher.subject.room.index', compact('teacher', 'subject')) }}"
+                               class="btn btn-warning rounded-pill shadow-sm">{{ __('Online Classroom') }}</a>
                         </div>
                     </div>
                     <div class="card-body mx-4 justify-content-center mb-4">

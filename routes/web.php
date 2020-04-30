@@ -33,12 +33,17 @@ Route::prefix('teacher/{teacher}')->group(function () {
 
         Route::prefix('{subject}')->group(function () {
             Route::get('', 'SubjectController@show')->name('teacher.subject.show');
-            Route::get('acceptAll', 'SubjectController@acceptAll')->name('teacher.subject.acceptAll');
-            Route::get('accept/{student}', 'SubjectController@accept')->name('teacher.subject.accept');
-            Route::get('remove/{student}', 'SubjectController@remove')->name('teacher.subject.remove');
             Route::get('edit', 'SubjectController@edit')->name('teacher.subject.edit');
             Route::patch('', 'SubjectController@update')->name('teacher.subject.update');
             Route::delete('', 'SubjectController@destroy')->name('teacher.subject.destroy');
+            //todo: accept and remove -> AJAX jQuery without routing
+            Route::get('acceptAll', 'SubjectController@acceptAll')->name('teacher.subject.acceptAll');
+            Route::get('accept/{student}', 'SubjectController@accept')->name('teacher.subject.accept');
+            Route::get('remove/{student}', 'SubjectController@remove')->name('teacher.subject.remove');
+
+            Route::prefix('room')->group(function () {
+               Route::get('', 'RoomController@index')->name('teacher.subject.room.index');
+            });
         });
     });
 
@@ -54,12 +59,13 @@ Route::prefix('teacher/{teacher}')->group(function () {
             Route::get('edit', 'ExamController@edit')->name('teacher.exam.edit');
             Route::patch('', 'ExamController@update')->name('teacher.exam.update');
             Route::delete('', 'ExamController@destroy')->name('teacher.exam.destroy');
+            //todo: enable -> AJAX jQuery without routing
             Route::get('enable/{subject}', 'ExamController@enable')->name('teacher.exam.enable');
 
             Route::prefix('question')->group(function () {
                 Route::get('create', 'QuestionController@create')->name('teacher.exam.question.create');
                 Route::post('', 'QuestionController@store')->name('teacher.exam.question.store');
-                Route::get('{question}{key}/edit', 'QuestionController@edit')->name('teacher.exam.question.edit');
+                Route::get('{question}-{key}/edit', 'QuestionController@edit')->name('teacher.exam.question.edit');
                 Route::patch('{question}', 'QuestionController@update')->name('teacher.exam.question.update');
                 Route::delete('{question}', 'QuestionController@destroy')->name('teacher.exam.question.destroy');
             });

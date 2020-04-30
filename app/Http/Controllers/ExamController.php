@@ -87,13 +87,13 @@ class ExamController extends Controller
         return view('teacher.exam.all', compact('teacher', 'data'));
     }
 
-    public function enable(Teacher $teacher, Exam $exam, Subject $subject)
+    public function enable(Request $request, Teacher $teacher, Exam $exam, Subject $subject)
     {
         $enable = $exam->subjects->find($subject)->pivot->enable;
         $exam->subjects()->UpdateExistingPivot($subject, ['enable' => ($enable) ? 0 : 1]);
-        $status = ($enable) ?  'danger' : 'success';
-        Session::flash($status, $exam->name . ' examination has been ' . (($enable) ?  'disabled' : 'enabled') .
-            ' for ' . $subject->name_schedule);
+        Session::flash(($enable) ?  'danger' : 'success',
+              $exam->name . ' examination has been ' . (($enable) ?  'disabled' : 'enabled') .
+              ' for ' . $subject->name_schedule);
         return redirect()->back();
     }
 
