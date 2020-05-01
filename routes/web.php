@@ -42,7 +42,12 @@ Route::prefix('teacher/{teacher}')->group(function () {
             Route::get('remove/{student}', 'SubjectController@remove')->name('teacher.subject.remove');
 
             Route::prefix('room')->group(function () {
-               Route::get('', 'RoomController@index')->name('teacher.subject.room.index');
+                Route::get('', 'RoomController@index')->name('teacher.subject.room.index');
+                Route::post('', 'RoomController@post')->name('teacher.subject.room.post');
+                Route::post('{post}', 'RoomController@comment')->name('teacher.subject.room.comment');
+                Route::delete('{post}', 'RoomController@destroyPost')->name('teacher.subject.room.destroyPost');
+                Route::delete('{post}/{comment}', 'RoomController@destroyComment')->name('teacher.subject.room.destroyComment');
+
             });
         });
     });
@@ -79,8 +84,21 @@ Route::prefix('student/{student}')->group(function () {
     Route::prefix('class')->group(function () {
         Route::get('', 'StudentController@index')->name('student.subject.index');
         Route::get('search', 'StudentController@search')->name('student.search')->middleware('strip.empty');
-        Route::get('{subject}/enroll', 'StudentController@enroll')->name('student.subject.enroll');
         Route::get('all', 'StudentController@viewAll')->name('student.subject.viewAll');
+
+        Route::prefix('{subject}')->group(function () {
+            Route::get('enroll', 'StudentController@enroll')->name('student.subject.enroll');
+            Route::get('show', 'StudentController@show')->name('student.subject.show');
+
+            Route::prefix('room')->group(function () {
+                Route::get('', 'RoomController@index')->name('student.subject.room.index');
+                Route::post('', 'RoomController@post')->name('student.subject.room.post');
+                Route::post('{post}', 'RoomController@comment')->name('student.subject.room.comment');
+                Route::delete('{post}', 'RoomController@destroyPost')->name('student.subject.room.destroyPost');
+                Route::delete('{post}/{comment}', 'RoomController@destroyComment')->name('student.subject.room.destroyComment');
+
+            });
+        });
     });
 
     Route::prefix('exam')->group(function () {

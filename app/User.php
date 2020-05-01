@@ -50,6 +50,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'account_number';
     }
 
+    public function getFullNameAttribute()
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
+
     /*todo CHANGE THIS IMPLEMENTATION */
     /* add role type? or change url user -> type */
     public function getAccountType()
@@ -78,5 +83,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function student()
     {
         return $this->hasOne(Student::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

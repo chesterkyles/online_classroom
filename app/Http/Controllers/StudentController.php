@@ -22,6 +22,7 @@ class StudentController extends Controller
         return view('student.home', compact('student'));
     }
 
+
     public function index(Student $student)
     {
         $student->subjects->load('teacher');
@@ -44,6 +45,11 @@ class StudentController extends Controller
             ->where('name', 'like', '%'.($data['class'] ?? '').'%')
             ->get();
         return view('student.search', compact('student', 'data' , 'subjects'));
+    }
+
+    public function show(Student $student, Subject $subject)
+    {
+        return view('student.subject.show', compact('student', 'subject'));
     }
 
     public function enroll(Student $student, Subject $subject)

@@ -28,6 +28,6 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         Session::flash('notification.status', $request->session()->get('notification.status'));
-        return redirect(route($user->account_type . '.home', $user->getAccountType($user)));
+        return redirect(route($user->account_type . '.home', $user->getAccountType()));
     }
 }

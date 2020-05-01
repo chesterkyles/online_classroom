@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
+            <div class="col-lg-12">
                 @if (session()->has('success'))
                     <div class="alert alert-success text-center" role="alert">
                         {{ session('success') }}
@@ -15,6 +15,12 @@
                         {{ session('danger') }}
                     </div>
                 @endif
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb px-4 font-weight-bolder">
+                        <li class="breadcrumb-item active" aria-current="page">Classes</li>
+                    </ol>
+                </nav>
 
                 <div class="card">
                     <div class="card-header d-inline-block d-md-flex align-items-center justify-content-between">
@@ -96,7 +102,7 @@
                                         </div>
                                     </li>
                                     <hr class="m-2">
-                                @endforeach
+                                    @endforeach
                                 </ul>
                                 <div class="mb-3"></div>
                             @endif

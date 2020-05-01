@@ -26,7 +26,7 @@
             </div>
             <div class="row d-block text-secondary ml-2">{{ 'Created at: ' . $exam->created_at }}</div>
             @if ((\Carbon\Carbon::parse($exam->updated_at))->gt(\Carbon\Carbon::parse($exam->created_at)))
-                <div class="row d-block text-muted text-secondary ml-2">{{ 'Last update at: ' . $exam->updated_at }}</div>
+                <div class="row d-block text-muted text-secondary ml-2">{{ 'Last updated on: ' . $exam->updated_at }}</div>
             @endif
             @if(!empty($exam->description))
                 <div class="row font-italic ml-2">{{ 'Description: ' . $exam->description }}</div>
@@ -40,13 +40,13 @@
                         </a>
                         @if($subject->pivot->enable)
                             <a href="#" data-toggle="modal" data-target="#disable_confirm-{{ $exam->id }}-{{ $subject->id }}"
-                               data-toggle="tooltip" title="Disable Exam" class="h-25 text-decoration-none mr-4 bg-danger text-light px-3 rounded-pill">
+                               data-toggle="tooltip" title="Disable Exam" class="h-25 mr-4 px-3 bg-danger text-decoration-none text-light rounded-pill">
                                 {{ __('Disable') }}
                             </a>
                             @include('dialog.exam.disable')
                         @else
                             <a href="{{ route('teacher.exam.enable', compact('teacher', 'exam', 'subject')) }}"
-                               data-toggle="tooltip" title="Enable Exam" class="h-25 text-decoration-none mr-4 bg-primary text-light px-3 rounded-pill">
+                               data-toggle="tooltip" title="Enable Exam" class="h-25 mr-4 px-3 bg-primary text-decoration-none text-light rounded-pill">
                                 {{ __('Enable') }}
                             </a>
                         @endif

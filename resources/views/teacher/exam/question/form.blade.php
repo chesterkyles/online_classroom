@@ -82,4 +82,4 @@
 <button type="submit" id="editor-submit" class="btn btn-primary">{{ __('Submit') }}</button>
 <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#cancel_confirm">{{ __('Cancel') }}</button>
 @include('dialog.cancel')
-@include('dialog.answer')
+@include('dialog.question.answer')

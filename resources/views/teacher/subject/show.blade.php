@@ -3,7 +3,14 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
+            <div class="col-lg-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb px-4">
+                        <li class="breadcrumb-item active"><a href="{{ route('teacher.subject.index', compact('teacher')) }}">Classes</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $subject->name }}</li>
+                    </ol>
+                </nav>
+
                 <div class="card">
                     <div class="card-header align-items-center py-4">
                         <div class="text-center text-md-left align-items-center ml-3 mb-2">

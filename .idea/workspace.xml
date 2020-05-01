@@ -2,14 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a812f71f-c53e-4db8-9147-14cf722e44ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/dialog/room/delete-comment.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dialog/room/delete-post.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/student/subject/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Chester_Kyles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Chester_Kyles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exam.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/classroom/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/room/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Subject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_29_131021_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_29_131021_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dialog/answer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dialog/question/answer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/room/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/room/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/student/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/subject/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/question/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/question/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/subject/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/teacher/subject/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/subject/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -148,7 +164,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="VAR" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dialog/question" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dialog/room" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -159,19 +175,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\exam" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\js" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\student\subject" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\subject" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\teacher" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\room" />
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\question" />
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\student" />
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\js" />
       <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\css" />
-      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\student" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\question" />
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\exam" />
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\public\js" />
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\student\subject" />
+      <recent name="C:\Users\Chester Kyles\PhpstormProjects\april_project_exam_system\resources\views\dialog\subject" />
     </key>
   </component>
   <component name="RunManager">
@@ -220,7 +236,7 @@
       <workItem from="1588077714999" duration="5839000" />
       <workItem from="1588134508596" duration="13599000" />
       <workItem from="1588163375324" duration="4450000" />
-      <workItem from="1588217840782" duration="2666000" />
+      <workItem from="1588217840782" duration="28184000" />
     </task>
     <servers />
   </component>
@@ -232,30 +248,30 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1819" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587531686369" />
-    <state x="1779" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587434235339">
+    <state x="1779" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588257744254">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1779" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587434235339" />
+    <state x="1779" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588257744254" />
     <state x="1733" y="18" width="645" height="691" key="#phpunit.xml" timestamp="1587707745213">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1733" y="18" width="645" height="691" key="#phpunit.xml/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587707745213" />
-    <state width="1367" height="185" key="GridCell.Tab.0.bottom" timestamp="1588224132995">
+    <state width="1367" height="185" key="GridCell.Tab.0.bottom" timestamp="1588263509373">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="185" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588224132995" />
-    <state width="1367" height="185" key="GridCell.Tab.0.center" timestamp="1588224132995">
+    <state width="1367" height="185" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588263509373" />
+    <state width="1367" height="185" key="GridCell.Tab.0.center" timestamp="1588263509372">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="185" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588224132995" />
-    <state width="1367" height="185" key="GridCell.Tab.0.left" timestamp="1588224132995">
+    <state width="1367" height="185" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588263509372" />
+    <state width="1367" height="185" key="GridCell.Tab.0.left" timestamp="1588263509371">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="185" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588224132995" />
-    <state width="1367" height="185" key="GridCell.Tab.0.right" timestamp="1588224132995">
+    <state width="1367" height="185" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588263509371" />
+    <state width="1367" height="185" key="GridCell.Tab.0.right" timestamp="1588263509372">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="185" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588224132995" />
+    <state width="1367" height="185" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588263509372" />
     <state x="1883" y="287" key="NewPhpFileDialog" timestamp="1587531902928">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
@@ -269,6 +285,10 @@
     </state>
     <state x="1641" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588217962226" />
     <state x="275" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588077714972" />
+    <state x="1695" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588257483431">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1695" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588257483431" />
     <state x="1817" y="73" width="828" height="606" key="find.popup" timestamp="1587956075702">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
@@ -277,9 +297,9 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1705" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587903551765" />
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587981643285">
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1588261928861">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587981643285" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588261928861" />
   </component>
 </project>

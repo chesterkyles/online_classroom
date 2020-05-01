@@ -18,16 +18,6 @@ class QuestionController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @param Teacher $teacher
@@ -61,17 +51,6 @@ class QuestionController extends Controller
         }
         Session::flash('success', 'A question has been successfully added!');
         return redirect(route('teacher.exam.show', compact('teacher','exam')));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

@@ -34,6 +34,12 @@ class Subject extends Model
         return $this->belongsTo(Semester::class);
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class)
+            ->orderBy('created_at', 'desc');
+    }
+
     public function students()
     {
         return $this->belongsToMany(Student::class, 'student_subject')

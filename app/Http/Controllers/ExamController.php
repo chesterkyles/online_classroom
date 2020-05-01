@@ -101,7 +101,7 @@ class ExamController extends Controller
     {
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255'],
-            'description' => ['string'],
+            'description' => ['string', 'max:255'],
             'instruction' => ['required', 'string'],
             'duration' => ['required'],
             'shuffle' => ['integer'],

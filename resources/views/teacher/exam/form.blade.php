@@ -1,7 +1,7 @@
 <div class="form-group d-block mx-4">
     <label for="name" class="text-md-right font-weight-bolder mb-0">{{ __('Name') }}</label>
     <small class="d-block font-italic mb-2 ml-2">{{ __('Provide name for the examination such as examination number, topic, lesson, etc.') }}</small>
-    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') ?: $exam->name ?? '' }}" style="text-transform: uppercase;" required autofocus>
+    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?: $exam->name ?? '' }}" style="text-transform: uppercase;" required autofocus>
     @error('name')
     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
     @enderror
@@ -11,7 +11,7 @@
     <label for="description" class="text-md-right font-weight-bolder mb-0">{{ __('Description') }}</label>
     <small class="font-italic">{{ __('(Optional)') }} </small>
     <small class="d-block font-italic mb-2 ml-2">{{ __('Provide a concise description which may explain some details about the examination.') }}</small>
-    <input id="description" type="text" class="form-control" name="description" value="{{ old('description') ?: $exam->description ?? ''}}" autofocus>
+    <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') ?: $exam->description ?? ''}}" autofocus>
     @error('description')
     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
     @enderror
@@ -20,7 +20,7 @@
 <div class="form-group d-block mx-4">
     <label for="instruction" class="text-md-right font-weight-bolder mb-0">{{ __('Instruction') }}</label>
     <small class="d-block font-italic mb-2 ml-2">{{ __('Provide a detailed instruction or step-by-step direction for the examination.') }}</small>
-    <textarea id="instruction" rows="3s" class="form-control" style="resize:none" name="instruction" required autofocus>{{ old('instruction') ?: $exam->instruction ?? '' }}</textarea>
+    <textarea id="instruction" rows="3" class="form-control @error('instruction') is-invalid @enderror" style="resize:none" name="instruction" required autofocus>{{ old('instruction') ?: $exam->instruction ?? '' }}</textarea>
     @error('instruction')
     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
     @enderror
