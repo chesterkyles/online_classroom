@@ -14,7 +14,10 @@ class Comment extends Model
         $date_tz = Carbon::parse($date)->timezone('Asia/Singapore')->toDateTimeString();
         $carbon_date = Carbon::createFromFormat('Y-m-d H:i:s', $date_tz);
         if ($carbon_date->isToday()) {
-            return 'Today at ' . $carbon_date->format('g:i A');
+            if( Carbon::parse($date)->diffInHours(Carbon::now()) > 12 )
+                return 'Today at ' . $carbon_date->format('g:i A');
+            else
+                return Carbon::parse($date)->diffForHumans();
         } else if ($carbon_date->isYesterday()) {
             return 'Yesterday at ' . $carbon_date->format('g:i A');
         } else {

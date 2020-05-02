@@ -6,16 +6,11 @@ use App\Semester;
 use App\Student;
 use App\Subject;
 use Illuminate\Http\Request;
-use MongoDB\Driver\Session;
+use Illuminate\Support\Facades\Session;
 
 
 class StudentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['verified', 'auth', 'route.access']);
-    }
-
 
     public function home(Student $student)
     {
@@ -43,6 +38,7 @@ class StudentController extends Controller
             ->with(['students' => $this->studentFilter($student)])
             ->where('semester_id', '=', ($semester_id[0] ?? ''))
             ->where('name', 'like', '%'.($data['class'] ?? '').'%')
+            ->orderBy('name', 'asc')
             ->get();
         return view('student.search', compact('student', 'data' , 'subjects'));
     }

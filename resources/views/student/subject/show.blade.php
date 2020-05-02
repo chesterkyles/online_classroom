@@ -17,7 +17,7 @@
                             <strong class="h4">{{ $subject->name_description }}</strong>
                         </div>
                         <div class="text-center text-md-left ml-3">
-                            <a href="{{ route('student.subject.room.index', compact('student', 'subject')) }}"
+                            <a href="{{ route('classroom.index', compact('subject')) }}"
                                class="btn btn-warning rounded-pill shadow-sm">{{ __('Online Classroom') }}</a>
                         </div>
                     </div>

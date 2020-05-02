@@ -21,7 +21,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('home', 'HomeController@index')->name('home');
 
-Route::prefix('teacher/{teacher}')->group(function () {
+Route::prefix('teacher/{teacher}')->middleware(['verified', 'auth', 'route.access'])->group(function () {
     Route::get('', 'TeacherController@home')->name('teacher.home');
 
     Route::prefix('class')->group(function () {
@@ -40,15 +40,6 @@ Route::prefix('teacher/{teacher}')->group(function () {
             Route::get('acceptAll', 'SubjectController@acceptAll')->name('teacher.subject.acceptAll');
             Route::get('accept/{student}', 'SubjectController@accept')->name('teacher.subject.accept');
             Route::get('remove/{student}', 'SubjectController@remove')->name('teacher.subject.remove');
-
-            Route::prefix('room')->group(function () {
-                Route::get('', 'RoomController@index')->name('teacher.subject.room.index');
-                Route::post('', 'RoomController@post')->name('teacher.subject.room.post');
-                Route::post('{post}', 'RoomController@comment')->name('teacher.subject.room.comment');
-                Route::delete('{post}', 'RoomController@destroyPost')->name('teacher.subject.room.destroyPost');
-                Route::delete('{post}/{comment}', 'RoomController@destroyComment')->name('teacher.subject.room.destroyComment');
-
-            });
         });
     });
 
@@ -78,7 +69,7 @@ Route::prefix('teacher/{teacher}')->group(function () {
     });
 });
 
-Route::prefix('student/{student}')->group(function () {
+Route::prefix('student/{student}')->middleware(['verified', 'auth', 'route.access'])->group(function () {
     Route::get('', 'StudentController@home')->name('student.home');
 
     Route::prefix('class')->group(function () {
@@ -90,19 +81,19 @@ Route::prefix('student/{student}')->group(function () {
             Route::get('enroll', 'StudentController@enroll')->name('student.subject.enroll');
             Route::get('show', 'StudentController@show')->name('student.subject.show');
 
-            Route::prefix('room')->group(function () {
-                Route::get('', 'RoomController@index')->name('student.subject.room.index');
-                Route::post('', 'RoomController@post')->name('student.subject.room.post');
-                Route::post('{post}', 'RoomController@comment')->name('student.subject.room.comment');
-                Route::delete('{post}', 'RoomController@destroyPost')->name('student.subject.room.destroyPost');
-                Route::delete('{post}/{comment}', 'RoomController@destroyComment')->name('student.subject.room.destroyComment');
-
-            });
         });
     });
 
     Route::prefix('exam')->group(function () {
         Route::get('', 'ExamController@index')->name('student.exam.index');
     });
+});
+
+Route::prefix('classroom/{subject}')->middleware(['verified', 'auth', 'classroom.access'])->group(function () {
+    Route::get('', 'RoomController@index')->name('classroom.index');
+    Route::post('', 'RoomController@post')->name('classroom.post');
+    Route::post('{post}', 'RoomController@comment')->name('classroom.comment');
+    Route::delete('{post}', 'RoomController@destroyPost')->name('classroom.destroyPost');
+    Route::delete('{post}/{comment}', 'RoomController@destroyComment')->name('classroom.destroyComment');
 });
 

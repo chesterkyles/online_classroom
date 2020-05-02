@@ -12,11 +12,6 @@ use Illuminate\Support\Str;
 class QuestionController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware(['verified', 'auth', 'route.access']);
-    }
-
     /**
      * Show the form for creating a new resource.
      *

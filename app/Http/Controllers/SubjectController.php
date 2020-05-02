@@ -6,6 +6,7 @@ use App\Semester;
 use App\Student;
 use App\Subject;
 use App\Teacher;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -13,11 +14,6 @@ use Illuminate\Support\Arr;
 
 class SubjectController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware(['verified', 'auth', 'route.access']);
-    }
 
     /**
      * Display a listing of the resource.
@@ -158,12 +154,17 @@ class SubjectController extends Controller
 
     public function validateRequest()
     {
+        $to_slug = trim(implode(" ", array(request()->name , request()->description)));
+        $slug = SlugService::createSlug(Subject::class, 'slug', $to_slug);
+        request()->request->add(['slug' => $slug]);
+
         return request()->validate([
             'name' => ['required', 'string'],
             'description' => ['required', 'string', 'max:255'],
             'schedule' => ['required', 'string'],
             'semester_name' => ['required'],
             'semester_year' => ['required'],
+            'slug' => ['required', 'string'],
         ]);
     }
 

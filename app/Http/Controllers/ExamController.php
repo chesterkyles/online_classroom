@@ -13,10 +13,6 @@ use Illuminate\Support\Str;
 
 class ExamController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['verified', 'auth', 'route.access']);
-    }
 
     public function index(Request $request, Teacher $teacher)
     {

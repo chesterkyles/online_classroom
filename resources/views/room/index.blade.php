@@ -19,7 +19,7 @@
                 </nav>
             </div>
 
-            <div class="col-lg-12 d-block d-md-flex m-0 p-0">
+            <div class="col-lg-12 d-block d-md-flex m-0 p-0" style="padding-top: 5000px">
                 <div class="col-12 col-md-8 d-block">
                     <div class="card mb-4">
                         <div class="card-header h5">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="card-body p-0">
                             <div class="form-group d-block px-4 pt-4">
-                                <form action="{{ route($user->account_type . '.subject.room.post', [$user->getAccountType(), 'subject' => $subject]) }}"  method="post">
+                                <form action="{{ route('classroom.post', compact('subject')) }}"  method="post">
                                     @csrf
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                                     <textarea id="name" rows="3" class="form-control" style="resize:none"
@@ -49,7 +49,7 @@
                             </div>
                             <ul class="list-group mt-2 mx-4" id="postMoreList">
                                 @foreach($posts as $post)
-                                    <li class="list-group-item m-0 bg-light" style="display:none;">
+                                    <li class="list-group-item m-0 px-1 bg-light" style="display:none;">
                                         <div class="d-flex px-2">
                                             <div class="px-1" style="width:50px;">
                                                 <img src="https://vectorified.com/images/default-image-icon-7.jpg" alt="" class="img-thumbnail rounded-circle">
@@ -68,8 +68,7 @@
                                                     @if($post->user->id == $user->id)
                                                         <a href="#" class="ml-2" data-toggle="modal" data-target="#delete_post_confirm-{{ $post->id }}">Delete</a>
                                                     @endif
-                                                    <form action="{{ route($user->account_type . '.subject.room.destroyPost',
-                                                            [$user->getAccountType(), 'subject' => $subject, 'post' => $post]) }}" method="post">
+                                                    <form action="{{ route('classroom.destroyPost', compact('subject', 'post')) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         @include('dialog.room.delete-post')
@@ -78,8 +77,7 @@
                                                 <div class="collapse" id="comment{{ $post->id }}">
                                                     <hr>
                                                     <div class="text-right">
-                                                        <form action="{{ route($user->account_type . '.subject.room.comment',
-                                                            [$user->getAccountType(), 'subject' => $subject, 'post' => $post]) }}" method="post">
+                                                        <form action="{{ route('classroom.comment', compact('subject', 'post')) }}" method="post">
                                                             @csrf
                                                             <input type="hidden" name="user_id" value="{{ $user->id }}">
                                                             <textarea rows="2" class="form-control" style="resize:none"
@@ -108,8 +106,7 @@
                                                                         @if($comment->user->id == $user->id)
                                                                             <a href="#" class="ml-2" data-toggle="modal" data-target="#delete_comment_confirm-{{ $comment->id }}">Delete</a>
                                                                         @endif
-                                                                        <form action="{{ route($user->account_type . '.subject.room.destroyComment',
-                                                                            [$user->getAccountType(), 'subject' => $subject, 'post' => $post, 'comment' => $comment]) }}" method="post">
+                                                                        <form action="{{ route('classroom.destroyComment', compact('subject', 'post', 'comment')) }}" method="post">
                                                                             @csrf
                                                                             @method('DELETE')
                                                                             @include('dialog.room.delete-comment')

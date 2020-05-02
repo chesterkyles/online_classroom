@@ -19,7 +19,7 @@
 
 <div class="form-group d-block mx-4">
     <label for="name" class="text-md-right font-weight-bolder">{{ __('Subject/Course Code') }}</label>
-    <small class="font-italic">{{ __('(e.g. ECE111)') }}</small>
+    <small class="font-italic">{{ __('(e.g. ECE 111)') }}</small>
     <input id="name" type="text" class="form-control" name="name" value="{{ old('name') ?: $subject->name ?? '' }}" required autofocus>
     @error('name')
     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>

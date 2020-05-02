@@ -20,6 +20,7 @@ class CreateSubjectsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('schedule');
+            $table->string('slug')->unique();
             $table->timestamps();
 
             $table->foreign('teacher_id')->references('id')->on('teachers');

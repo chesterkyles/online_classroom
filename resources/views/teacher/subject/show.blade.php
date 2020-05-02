@@ -21,7 +21,7 @@
                             </a>
                         </div>
                         <div class="text-center text-md-left ml-3">
-                            <a href="{{ route('teacher.subject.room.index', compact('teacher', 'subject')) }}"
+                            <a href="{{ route('classroom.index', compact('subject')) }}"
                                class="btn btn-warning rounded-pill shadow-sm">{{ __('Online Classroom') }}</a>
                         </div>
                     </div>

@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'route.access' => \App\Http\Middleware\AllowRouteAccessIfUser::class,
         'strip.empty' => \App\Http\Middleware\StripEmptyParams::class,
+        'classroom.access' => \App\Http\Middleware\AllowOnlyEnrolledStudents::class,
     ];
 }

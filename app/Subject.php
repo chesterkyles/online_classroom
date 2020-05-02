@@ -4,10 +4,24 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+
 
 class Subject extends Model
 {
+    use Sluggable;
+
     protected $guarded = [];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function sluggable()
+    {
+        return ['slug' => []];
+    }
 
     public function getNameDescriptionAttribute()
     {

@@ -2,30 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a812f71f-c53e-4db8-9147-14cf722e44ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/dialog/room/delete-comment.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dialog/room/delete-post.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/student/subject/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/april_project_exam_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/april_project_exam_system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Chester_Kyles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Chester_Kyles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Subject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_29_131021_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_29_131021_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dialog/answer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dialog/question/answer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_16_100450_create_subjects_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_16_100450_create_subjects_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/room/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/room/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/student/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/subject/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher/exam/question/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/exam/question/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/subject/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/student/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/student/subject/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/subject/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/subject/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/subject/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/teacher/subject/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/subject/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -149,6 +147,8 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
+      <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
     </include_path>
   </component>
   <component name="ProjectId" id="1aSKxc1QvEOgRLSennpUm9EjmJV" />
@@ -237,6 +237,8 @@
       <workItem from="1588134508596" duration="13599000" />
       <workItem from="1588163375324" duration="4450000" />
       <workItem from="1588217840782" duration="28184000" />
+      <workItem from="1588308804678" duration="19598000" />
+      <workItem from="1588389895308" duration="2889000" />
     </task>
     <servers />
   </component>
@@ -280,10 +282,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="368" y="7" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587964847207" />
-    <state x="1641" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1588217962226">
+    <state x="1641" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1588389945540">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1641" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588217962226" />
+    <state x="1641" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588389945540" />
     <state x="275" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588077714972" />
     <state x="1695" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588257483431">
       <screen x="1366" y="0" width="1366" height="728" />
@@ -297,9 +299,9 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1705" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1587903551765" />
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1588261928861">
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1588315774280">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588261928861" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1588315774280" />
   </component>
 </project>

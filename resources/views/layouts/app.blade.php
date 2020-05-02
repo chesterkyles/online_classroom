@@ -28,7 +28,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white shadow-sm font-weight-bolder">
+        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white shadow-sm font-weight-bolder" style="height:70px">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -160,6 +160,8 @@
 {{--                <div class="toast-body"> THIS MESSAGE IS FOR NOTIFICATION. UNDER CONSTRUCTION! </div>--}}
 {{--            </div>--}}
 {{--        </div>--}}
+
+        @yield('navcrumb')
 
         <main class="py-4">
             @yield('content')
