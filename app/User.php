@@ -75,6 +75,11 @@ class User extends Authenticatable implements MustVerifyEmail
         }
     }
 
+    public function hasUnreadNotifs()
+    {
+        return ($this->unreadNotifications->count() > 0);
+    }
+
     public function teacher()
     {
         return $this->hasOne(Teacher::class);
@@ -94,4 +99,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'user_subject')
+            ->withPivot('name')
+            ->withTimestamps();
+    }
+
 }

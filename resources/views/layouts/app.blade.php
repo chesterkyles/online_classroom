@@ -70,35 +70,57 @@
                     <ul class="navbar-nav ml-auto">
                         @if($user = Auth::user())
                             <li class="nav-item dropdown d-flex mt-2">
-                                <div class="dropdown">
-                                    <a class="btn px-1" type="button" id="messages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-envelope fa-lg">
-                                            <span class="font-weight-normal badge badge-light badge-pill text-danger">
-                                                {{ __('0') }}
-                                            </span>
-                                        </i>
+                                <div class="dropdown mr-3" style="position: static;">
+                                    <a class="btn btn-default btn-link px-1" type="button" id="messages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-envelope fa-lg"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="messages">
-                                        <div class="d-flex bg-light">
-                                            <label class="small text-muted ml-4 my-1">{{ __('Messages') }}</label>
+                                    @if(false)
+                                        <span class="badge badge-notify rounded-pill text-light"></span>
+                                    @endif
+
+                                    <div class="dropdown-menu" aria-labelledby="messages">
+                                        <div class="d-block custom-scrollable">
+                                            <div class="d-flex bg-light">
+                                                <label class="h6 font-weight-bolder text-muted ml-4 my-2">{{ __('Messages') }}</label>
+                                            </div>
+                                            <a class="dropdown-item" href="#" disabled>{{ __('UNDER CONSTRUCTION!') }}</a>
                                         </div>
-                                        <a class="dropdown-item" href="#" disabled>{{ __('UNDER CONSTRUCTION!') }}</a>
                                     </div>
                                 </div>
 
-                                <div class="dropdown mr-3">
-                                    <a class="btn px-1" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-bell fa-lg">
-                                            <span class="font-weight-normal badge badge-light badge-pill text-danger">
-                                                {{ __('0') }}
-                                            </span>
-                                        </i>
+                                <div class="dropdown mr-4" style="position: static;">
+                                    <a class="btn btn-default btn-link px-1" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-bell fa-lg"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="notification">
-                                        <div class="d-flex bg-light">
-                                            <label class="small text-muted ml-4 my-1">{{ __('Notifications') }}</label>
+                                    @if($user->hasUnreadNotifs())
+                                        <span class="badge badge-notify rounded-circle text-light">{{ $user->unreadNotifications->count() }}</span>
+                                    @endif
+
+                                    <div class="dropdown-menu" aria-labelledby="notification">
+                                        <div class="d-block custom-scrollable">
+                                            <div class="d-flex bg-light">
+                                                <label class="h6 font-weight-bolder text-muted ml-4 my-2">{{ __('Notifications') }}</label>
+                                            </div>
+                                            @if($user->hasUnreadNotifs())
+                                                @foreach($user->unreadNotifications as $notification)
+                                                    <a href="{{ $notification->data['slugURL'] }}" class="p-0 text-decoration-none border-bottom dropdown-item text-wrap">
+                                                        <div class="d-flex p-1">
+                                                            <div class="m-2 pt-1" style="min-width:30px">
+                                                                <img src="https://vectorified.com/images/default-image-icon-7.jpg" alt="" class="img-thumbnail rounded-circle" style="width:30px">
+                                                            </div>
+                                                            <div class="my-2 mr-2 small">
+                                                                <b class="text-info">{{ $notification->data['user'] }}</b> has posted a message on <b class="text-info">{{ $notification->data['class'] }}</b>.
+                                                                <div class="d-block text-muted font-italic">"{{ $notification->data['body'] }}"</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                @endforeach
+                                            @else
+                                                <div class="text-decoration-none py-2 pl-4 text-wrap" disabled>
+                                                    No new notifications!
+                                                </div>
+                                            @endif
                                         </div>
-                                        <a class="dropdown-item" href="#" disabled>{{ __('UNDER CONSTRUCTION!') }}</a>
                                     </div>
                                 </div>
 
@@ -176,10 +198,14 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script>
-        $(".toast").toast({
+        $('.toast').toast({
             animation: true,
             delay: 10000,
         }).toast('show');
+
+        $('.dropdown-menu').click(function(e) {
+            e.stopPropagation();
+        });
     </script>
     @yield('scripts')
 </body>

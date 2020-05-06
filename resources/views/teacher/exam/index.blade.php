@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-12 d-block">
+            <div class="col-lg-1 d-block">
                 @if (session()->has('success'))
                     <div class="alert alert-success text-center" role="alert">
                         {{ session('success') }}
@@ -17,7 +17,7 @@
                 @endif
             </div>
 
-            <div class="col-lg-12 d-block d-md-flex m-0 p-0">
+            <div class="col-12 d-block d-md-flex m-0 p-0">
                 <div class="col-12 col-md-3 d-block">
                     <div class="card mb-4">
                         <div class="card-header h5">

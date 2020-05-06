@@ -26,6 +26,11 @@ class Post extends Model
         }
     }
 
+    public function getIsLikedAttribute()
+    {
+        return $this->likes->where('user_id', auth()->user()->id)->first();
+    }
+
     public function subject()
     {
         return $this->belongsTo(Subject::class);
@@ -40,5 +45,10 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class)
             ->orderBy('created_at', 'asc');
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
     }
 }

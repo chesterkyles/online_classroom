@@ -23,6 +23,11 @@ class Subject extends Model
         return ['slug' => []];
     }
 
+    public function getIsBookmarkedAttribute()
+    {
+        return $this->users->find(auth()->user());
+    }
+
     public function getNameDescriptionAttribute()
     {
         return "{$this->name} - {$this->description} ";
@@ -69,5 +74,22 @@ class Subject extends Model
             ->orderBy('created_at', 'desc')
             ->withPivot('enable')
             ->withTimestamps();
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_subject')
+            ->withPivot('name')
+            ->withTimestamps();
+    }
+
+    public function get_users(){
+        $keys = $this->students->map->only(['user_id'])->flatten()->toArray();
+        $users = User::whereIn('id', $keys)->get();
+        if(auth()->user()->account_type == 'student'){
+            $users = $users->diff(User::where('id', auth()->user()->id)->get());
+            $users->push(User::where('id', $this->teacher->id)->first());
+        }
+        return $users;
     }
 }

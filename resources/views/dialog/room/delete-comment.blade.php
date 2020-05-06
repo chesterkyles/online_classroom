@@ -9,7 +9,7 @@
             </div>
 
             <!-- Body -->
-            <div class="modal-body">
+            <div class="modal-body text-dark h6 m-0">
                 {{ __('Are you sure you want to delete this comment?') }}
             </div>
 

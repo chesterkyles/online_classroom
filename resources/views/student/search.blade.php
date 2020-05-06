@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-12">
+            <div class="col-lg12">
                 @if (session()->has('enroll_class'))
                     <div class="alert alert-info text-center" role="alert">
                         {{ session('enroll_class') }}

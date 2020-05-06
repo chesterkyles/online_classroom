@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-12">
+            <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb px-4 font-weight-bolder">
                         <li class="breadcrumb-item active" aria-current="page">Classes</li>

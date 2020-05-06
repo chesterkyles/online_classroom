@@ -1,16 +1,16 @@
-<div class="modal fade" id="delete_post_confirm-{{ $post->id }}">
+<div class="modal fade" id="remove_bookmark-{{ $subject->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- Header -->
             <div class="modal-header">
-                <h5 class="modal-title">Delete Confirmation</h5>
+                <h5 class="modal-title"><i class="fa fa-bookmark mr-2"></i>Bookmark Confirmation</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- Body -->
-            <div class="modal-body text-dark h6 m-0">
-                {{ __('Are you sure you want to delete this post?') }}
+            <div class="modal-body">
+                <div class="text-danger">{{ __('Are you sure you want to remove this bookmark?') }}</div>
             </div>
 
             <!-- Footer -->

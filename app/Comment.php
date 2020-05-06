@@ -25,6 +25,12 @@ class Comment extends Model
         }
     }
 
+    public function getIsLikedAttribute()
+    {
+        return $this->likes->where('user_id', auth()->user()->id)->first();
+    }
+
+
     public function post()
     {
         return $this->belongsTo(Post::class);
@@ -33,5 +39,10 @@ class Comment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
     }
 }
