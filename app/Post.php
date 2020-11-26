@@ -10,6 +10,7 @@ class Post extends Model
     protected $guarded = [];
 
     /*todo change to Trait for code reusability*/
+	/*add comment for trying pull request github*/
     public function getCreatedAtAttribute($date)
     {
         $date_tz = Carbon::parse($date)->timezone('Asia/Singapore')->toDateTimeString();
