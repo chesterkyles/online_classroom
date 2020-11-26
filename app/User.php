@@ -57,6 +57,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /*todo CHANGE THIS IMPLEMENTATION */
     /* add role type? or change url user -> type */
+	/* commit to master, trial PR */
     public function getAccountType()
     {
         if($this->account_type == 'student') {
